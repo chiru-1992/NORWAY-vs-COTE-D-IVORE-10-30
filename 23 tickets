@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Ticket Store</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; text-align: center; }
+    .ticket-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
+    .ticket { 
+      border: 2px solid #333; 
+      padding: 15px; 
+      width: 300px; 
+      border-radius: 12px; 
+      background: #fff; 
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.1); 
+      text-align: left;
+    }
+    .ticket-header { 
+      font-size: 16px; 
+      font-weight: bold; 
+      color: #000; 
+      text-align: center; 
+      margin-bottom: 15px; 
+      padding-bottom: 10px;
+      border-bottom: 2px dashed #ccc;
+    }
+    .input-group { margin-bottom: 15px; }
+    .input-group input { width: calc(100% - 70px); padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    .input-group button { width: 60px; padding: 8px; background-color: #0055a4; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    .input-group button:hover { background-color: #004080; }
+    
+    .buyer-display { font-weight: bold; color: #d9534f; margin-bottom: 15px; display: none; }
+    
+    .code-section { margin-top: 15px; background: #f9f9f9; padding: 10px; border-radius: 6px; border: 1px solid #eee; display: none; }
+    .code-section input { width: calc(100% - 80px); padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    .code-section button { width: 70px; padding: 8px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    
+    .hidden { display: none; }
+    .revealed-players { margin-top: 15px; padding: 12px; background: #e8f5e9; border-radius: 6px; border: 1px solid #c8e6c9; }
+    .player-line { font-size: 15px; font-weight: bold; margin: 5px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>Match Ticketing System</h1>
+  <div class="ticket-container" id="ticket-board">
+    <!-- Tickets will generate here -->
+  </div>
+
+  <script>
+    // The master secret code
+    const SECRET_CODE = "AFROJAZZ";
+
+    // 23 Unique Matchups (No Repeats, 1 Norway GK added to reach 23)
+    const ticketsData = [
+      { norway: "2 Julian Ryerson", civ: "2 Ousmane Diomande" },
+      { norway: "3 Kristoffer Ajer", civ: "3 Ghislain Konan" },
+      { norway: "4 Leo Skiri Østigård", civ: "5 Wilfried Singo" },
+      { norway: "5 David Møller Wolfe", civ: "7 Odilon Kossounou" },
+      { norway: "15 Fredrik Bjørkan", civ: "13 Christopher Operi" },
+      { norway: "16 Marcus Holmgren Pedersen", civ: "17 Guéla Doué" },
+      { norway: "21 Torbjørn Heggem", civ: "20 Emmanuel Agbadou" },
+      { norway: "24 Sondre Langås", civ: "21 Evan Ndicka" },
+      { norway: "25 Henrik Falchener", civ: "4 Jean Michael Seri" },
+      { norway: "6 Patrick Berg", civ: "6 Seko Fofana" },
+      { norway: "8 Sander Berge", civ: "8 Franck Kessié" },
+      { norway: "10 Martin Ødegaard", civ: "18 Ibrahim Sangaré" },
+      { norway: "14 Fredrik Aursnes", civ: "25 Parfait Guiagon" },
+      { norway: "18 Kristian Thorstvedt", civ: "26 Christ Inao Oulaï" },
+      { norway: "19 Thelo Aasgaard", civ: "9 Ange-Yoan Bonny" },
+      { norway: "20 Antonio Nusa", civ: "10 Simon Adingra" },
+      { norway: "22 Oscar Bobb", civ: "11 Yan Diomande" },
+      { norway: "23 Jens Petter Hauge", civ: "12 Elye Wahi" },
+      { norway: "26 Andreas Schjelderup", civ: "14 Oumar Diakite" },
+      { norway: "7 Alexander Sørloth", civ: "15 Amad Diallo" },
+      { norway: "9 Erling Haaland", civ: "19 Nicolas Pépé" },
+      { norway: "11 Jørgen Strand Larsen", civ: "22 Evann Guessand" },
+      { norway: "1 Ørjan Nyland", civ: "24 Bazoumana Traore" } // Norway GK used to complete 23 unique pairings
+    ];
+
+    const ticketBoard = document.getElementById("ticket-board");
+
+    // Generate Tickets
+    ticketsData.forEach((matchup, index) => {
+      const ticketId = index + 1;
+      
+      const ticketHTML = `
+        <div class="ticket" id="ticket-${ticketId}">
+          <div class="ticket-header">NORWAY Vs COTE D IVORE<br>Time: 10:30</div>
+          
+          <!-- Buyer Name Input -->
+          <div class="input-group" id="buy-section-${ticketId}">
+            <input type="text" id="buyer-name-${ticketId}" placeholder="Enter your name">
+            <button onclick="buyTicket(${ticketId})">Buy</button>
+          </div>
+
+          <!-- Locked Buyer Display -->
+          <div class="buyer-display" id="display-buyer-${ticketId}"></div>
+          
+          <!-- Reveal Code Section (Appears after buying) -->
+          <div class="code-section" id="code-section-${ticketId}">
+            <p style="font-size: 13px; margin: 0 0 8px 0;">Enter code to reveal players:</p>
+            <input type="text" id="code-input-${ticketId}" placeholder="Code">
+            <button onclick="revealPlayers(${ticketId})">Unlock</button>
+          </div>
+
+          <!-- Hidden Player Details -->
+          <div id="players-${ticketId}" class="hidden revealed-players">
+            <p class="player-line">🇳🇴 Norway: <br>${matchup.norway}</p>
+            <p class="player-line">🇨🇮 Côte d'Ivoire: <br>${matchup.civ}</p>
+          </div>
+        </div>
+      `;
+      ticketBoard.innerHTML += ticketHTML;
+    });
+
+    // Function to lock in the name
+    function buyTicket(ticketId) {
+      const nameInput = document.getElementById(`buyer-name-${ticketId}`).value;
+      if (nameInput.trim() === "") {
+        alert("Please enter your name to buy this ticket.");
+        return;
+      }
+      
+      // Hide input, show locked name
+      document.getElementById(`buy-section-${ticketId}`).style.display = "none";
+      const displayDiv = document.getElementById(`display-buyer-${ticketId}`);
+      displayDiv.innerText = `Ticket Holder: ${nameInput}`;
+      displayDiv.style.display = "block";
+
+      // Show the code input section
+      document.getElementById(`code-section-${ticketId}`).style.display = "block";
+    }
+
+    // Function to check code and reveal players
+    function revealPlayers(ticketId) {
+      const codeInput = document.getElementById(`code-input-${ticketId}`).value;
+      
+      if (codeInput === SECRET_CODE) {
+        document.getElementById(`code-section-${ticketId}`).style.display = "none";
+        document.getElementById(`players-${ticketId}`).classList.remove("hidden");
+      } else {
+        alert("Incorrect code! You cannot view the players.");
+      }
+    }
+  </script>
+
+</body>
+</html>
