@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORWAY Vs COTE D IVORE - 23 Tickets</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .controls input[type="text"] {
+            width: 100px;
+            padding: 2px 5px;
+            border: 1px solid #ccc;
+        }
+
+        .controls button {
+            padding: 2px 10px;
+            border: 1px solid #999;
+            background-color: #e0e0e0;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .controls button:hover {
+            background-color: #d0d0d0;
+        }
+
+        .ticket-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .ticket {
+            background-color: #98e698; /* Light green matching the screenshot */
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .ticket-header {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .ticket-buyer {
+            margin-bottom: 12px;
+        }
+
+        .ticket-team {
+            margin-top: 4px;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 900px) {
+            .ticket-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ticket-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .ticket-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-title">NORWAY Vs COTE D IVORE - 23 Tickets</div>
+    
+    <div class="controls">
+        <input type="text" value="........." readonly>
+        <button>Reveal</button>
+    </div>
+
+    <div class="ticket-grid">
+        <!-- Ticket 1 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 1</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Ørjan Nyland #1</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Yahia Fofana #1</div>
+        </div>
+
+        <!-- Ticket 2 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 2</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Morten Thorsby #2</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Ousmane Diomande #2</div>
+        </div>
+
+        <!-- Ticket 3 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 3</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Kristoffer Ajer #3</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Ghislain Konan #3</div>
+        </div>
+
+        <!-- Ticket 4 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 4</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Leo Østigård #4</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Jean Michaël Seri #4</div>
+        </div>
+
+        <!-- Ticket 5 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 5</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> David Møller Wolfe #5</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Wilfried Singo #5</div>
+        </div>
+
+        <!-- Ticket 6 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 6</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Patrick Berg #6</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Seko Fofana #6</div>
+        </div>
+
+        <!-- Ticket 7 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 7</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Alexander Sørloth #7</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Odilon Kossounou #7</div>
+        </div>
+
+        <!-- Ticket 8 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 8</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Sander Berge #8</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Franck Kessié #8</div>
+        </div>
+
+        <!-- Ticket 9 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 9</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Erling Haaland #9</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Ange-Yoan Bonny #9</div>
+        </div>
+
+        <!-- Ticket 10 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 10</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Martin Ødegaard #10</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Simon Adingra #10</div>
+        </div>
+
+        <!-- Ticket 11 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 11</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Jørgen Strand Larsen #11</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Yan Diomande #11</div>
+        </div>
+
+        <!-- Ticket 12 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 12</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Sander Tangvik #12</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Elye Wahi #12</div>
+        </div>
+
+        <!-- Ticket 13 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 13</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Egil Selvik #13</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Christopher Opéri #13</div>
+        </div>
+
+        <!-- Ticket 14 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 14</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Fredrik Aursnes #14</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Oumar Diakité #14</div>
+        </div>
+
+        <!-- Ticket 15 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 15</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Fredrik Bjørkan #15</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Amad Diallo #15</div>
+        </div>
+
+        <!-- Ticket 16 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 16</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Marcus H. Pedersen #16</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Mohamed Koné #16</div>
+        </div>
+
+        <!-- Ticket 17 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 17</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Torbjørn Heggem #17</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Guéla Doué #17</div>
+        </div>
+
+        <!-- Ticket 18 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 18</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Kristian Thorstvedt #18</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Ibrahim Sangaré #18</div>
+        </div>
+
+        <!-- Ticket 19 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 19</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Thelo Aasgaard #19</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Nicolas Pépé #19</div>
+        </div>
+
+        <!-- Ticket 20 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 20</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Antonio Nusa #20</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Emmanuel Agbadou #20</div>
+        </div>
+
+        <!-- Ticket 21 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 21</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Andreas Schjelderup #21</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Evan Ndicka #21</div>
+        </div>
+
+        <!-- Ticket 22 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 22</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Oscar Bobb #22</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Evann Guessand #22</div>
+        </div>
+
+        <!-- Ticket 23 -->
+        <div class="ticket">
+            <div class="ticket-header">Ticket 23</div>
+            <div class="ticket-buyer">Buyer: ________</div>
+            <div class="ticket-team"><strong>Norway:</strong> Jens Petter Hauge #23</div>
+            <div class="ticket-team"><strong>Cote d Ivore:</strong> Alban Lafont #23</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
